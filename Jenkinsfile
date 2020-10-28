@@ -1,9 +1,10 @@
 node {
    stage('init') {
-      checkout scm 
+      checkout scm
    }
    stage('build') {
       sh '''
+         cd complete
          mvn clean package
          cd target
          cp ../src/main/resources/web.config web.config
