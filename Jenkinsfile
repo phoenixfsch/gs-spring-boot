@@ -7,7 +7,8 @@ node {
          cd complete
          mvn clean package
          cd target
-         cp complete/src/main/resources/web.config web.config
+         pwd
+         cp ../src/main/resources/web.config web.config
          cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar
          zip todo.zip app.jar web.config
       '''
