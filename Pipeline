@@ -13,8 +13,8 @@ node {
     }
     stage('Deploy') {
         sh '''
-            scp -i ~/fschserv_key.pem complete/target/app.jar azureuser@168.62.48.106:/home/jenkins/test/
-            ssh -ti ~/fschserv_key.pem azureuser@168.62.48.106 "/home/jenkins/test/startapp.sh"
+            scp -i ~/fschserv_key.pem complete/target/app.jar azureuser@168.62.48.106:/home/azureuser/testapp/
+            ssh -ti ~/fschserv_key.pem azureuser@168.62.48.106 "/home/azureuser/testapp/startapp.sh"
         '''
     }
 }
