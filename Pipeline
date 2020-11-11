@@ -7,12 +7,13 @@ node {
             cd complete
             mvn clean package
             cd target
+            pwd
             cp spring-boot-0.0.1-SNAPSHOT.jar app.jar
         '''
     }
     stage('Deploy') {
         sh '''
-            scp -i ~/fschserv_key.pem ~/complete/target/app.jar azureuser@168.62.48.106:/home/jenkins/test/
+            scp -i ~/fschserv_key.pem complete/target/app.jar azureuser@168.62.48.106:/home/jenkins/test/
             ssh -ti ~/fschserv_key.pem azureuser@168.62.48.106 "/home/jenkins/test/startapp.sh"
         '''
     }
