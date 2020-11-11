@@ -8,13 +8,12 @@ node {
             mvn clean package
             cd target
             cp spring-boot-0.0.1-SNAPSHOT.jar app.jar
-            zip app.zip app.jar web.config
         '''
     }
     stage('Deploy') {
         sh '''
-        echo "SCP ---"
-            scp -i ~/fschserv_key.pem app.jar azureuser@168.62.48.106:/home/azureuser/testapp/
+            scp -i ~/fschserv_key.pem ~/complete/target/app.jar azureuser@168.62.48.106:/home/jenkins/test/
+            ssh -ti ~/fschserv_key.pem azureuser@168.62.48.106 "/home/jenkins/test/startapp.sh"
         '''
     }
 }
