@@ -13,6 +13,7 @@ node {
     }
     stage('Deploy') {
         sh '''
+        echo "SCP ---"
             scp -i ~/fschserv_key.pem app.jar azureuser@168.62.48.106:/home/azureuser/testapp/
         '''
     }
