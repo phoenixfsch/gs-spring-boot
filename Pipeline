@@ -1,8 +1,7 @@
-agent {
-       label "node2"
-    }
-
 node {
+    agent {
+           label "node2"
+        }
     stage('Init') {
         checkout scm
     }
