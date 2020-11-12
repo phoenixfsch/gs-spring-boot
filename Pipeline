@@ -14,7 +14,7 @@ node {
     stage('Deploy') {
         sh '''
             scp -i ~/fschserv_key.pem complete/target/app.jar azureuser@168.62.48.106:/home/azureuser/testapp/
-            ssh -Ti ~/fschserv_key.pem azureuser@168.62.48.106 "/home/azureuser/testapp/startapp.sh"
+            ssh -Ti ~/fschserv_key.pem azureuser@168.62.48.106 /bin/bash "/home/azureuser/testapp/startapp.sh &>/dev/null &"
         '''
     }
 }
